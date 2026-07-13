@@ -1,0 +1,878 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    color:#444;
+    overflow-x:hidden;
+    position:relative;
+    isolation:isolate;
+
+    background:
+    radial-gradient(circle at top left,#ffe8f2 0%,transparent 40%),
+    radial-gradient(circle at bottom right,#fff0f6 0%,transparent 35%),
+    linear-gradient(135deg,#fff8fb,#fff2f6,#fffdfd);
+}
+
+/* ====================================
+   PARTICLE BACKGROUND
+==================================== */
+
+#particles{
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100vh;
+    pointer-events:none;
+    z-index:1;
+}
+
+/* ====================================
+   MAIN CONTENT
+==================================== */
+
+.hero,
+section{
+    position:relative;
+    z-index:2;
+}
+
+#popup{
+    z-index:9999;
+}
+
+/* ====================================
+   HERO
+==================================== */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-family:'Great Vibes',cursive;
+    font-size:5rem;
+    color:#d14d72;
+    margin-bottom:10px;
+}
+
+.hero h2{
+    font-family:'Great Vibes',cursive;
+    font-size:6rem;
+    color:#d14d72;
+    line-height:1;
+    animation:fadeUp 1.5s ease;
+    text-shadow:0 0 20px rgba(255,215,0,0.15);
+}
+
+.hero p{
+    margin-top:25px;
+    max-width:650px;
+    font-size:1.2rem;
+    line-height:1.8;
+    animation:fadeUp 1.8s ease;
+}
+
+.scroll{
+    margin-top:60px;
+    color:#888;
+    animation:bounce 2s infinite;
+}
+
+/* ====================================
+   SECTIONS
+==================================== */
+
+section{
+    width:90%;
+    max-width:900px;
+    margin:auto;
+    padding:90px 0;
+}
+
+section h3{
+    text-align:center;
+    font-size:2.3rem;
+    color:#d14d72;
+    margin-bottom:40px;
+}
+
+/* =====================================
+MESSAGE
+===================================== */
+
+.message{
+
+    text-align:center;
+
+}
+
+.message-card{
+
+    width:100%;
+    max-width:760px;
+
+    margin:35px auto;
+
+    padding:28px 35px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.45);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.35);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.08);
+
+    font-size:1.15rem;
+
+    line-height:2;
+
+    color:#555;
+
+    transition:.4s;
+
+}
+
+.message-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.12);
+
+    border-color:rgba(255,215,0,.4);
+
+}
+
+/* ====================================
+   GALLERY
+==================================== */
+
+.photos{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:60px;
+
+    width:100%;
+
+}
+
+.photos img{
+    width:100%;
+    border-radius:20px;
+    cursor:pointer;
+    transition:.4s;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.photos img:hover{
+    transform:scale(1.05);
+}
+.memory-video{
+
+    width:100%;
+
+    max-width:380px;
+
+    aspect-ratio:9/16;
+
+    display:block;
+
+    object-fit:cover;
+
+    border-radius:24px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.18);
+
+    transition:.4s;
+
+}
+
+.memory-video:hover{
+
+    transform:translateY(-8px) scale(1.02);
+
+    box-shadow:0 30px 80px rgba(0,0,0,.25);
+
+}
+
+/* ====================================
+   BUTTON
+==================================== */
+
+.wish{
+    text-align:center;
+}
+
+#wishBtn{
+    border:none;
+    outline:none;
+    cursor:pointer;
+    background:#ff5d8f;
+    color:white;
+    padding:18px 42px;
+    border-radius:50px;
+    font-size:1.1rem;
+    transition:.3s;
+    box-shadow:0 12px 30px rgba(255,93,143,.35);
+}
+
+#wishBtn:hover{
+    background:#ff3f7b;
+    transform:translateY(-5px);
+}
+
+/* ====================================
+   POPUP
+==================================== */
+
+#popup{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.55);
+    padding:20px;
+    z-index:1000;
+}
+
+.popupContent{
+    background:white;
+    width:90%;
+    max-width:500px;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    animation:popup .4s ease;
+    box-shadow:0 25px 60px rgba(0,0,0,.2);
+}
+
+.popupContent h2{
+    font-size:3rem;
+}
+
+.popupContent p{
+    margin:25px 0;
+    line-height:2;
+}
+
+.popupContent button{
+    border:none;
+    cursor:pointer;
+    background:#ff5d8f;
+    color:white;
+    padding:12px 30px;
+    border-radius:30px;
+    font-size:1rem;
+}
+
+/* ====================================
+   ANIMATIONS
+==================================== */
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(10px);
+    }
+
+}
+
+@keyframes popup{
+
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+/* ====================================
+   MOBILE
+==================================== */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:3.2rem;
+}
+
+.hero h2{
+    font-size:2.2rem;
+}
+
+.hero p{
+    font-size:1rem;
+}
+
+section h3{
+    font-size:2rem;
+}
+
+.message p{
+    font-size:1rem;
+    line-height:1.9;
+}
+
+.photos{
+    grid-template-columns:1fr;
+}
+
+#wishBtn{
+    padding:16px 34px;
+}
+
+}
+
+/* ================================
+INTRO SCREEN
+================================ */
+
+#intro{
+
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(255,248,251,.95);
+
+    backdrop-filter:blur(10px);
+
+    z-index:99999;
+
+    transition:1s;
+
+}
+
+.intro-content{
+
+    text-align:center;
+    padding:20px;
+
+}
+
+#typingTitle{
+
+    font-family:'Great Vibes',cursive;
+    font-size:5rem;
+    color:#d14d72;
+
+    min-height:90px;
+
+}
+
+#typingName{
+
+    font-family:'Great Vibes',cursive;
+    font-size:6rem;
+
+    color:#b76e79;
+
+    min-height:110px;
+
+}
+
+#typingMessage{
+
+    margin-top:30px;
+
+    font-size:1.2rem;
+
+    color:#555;
+
+    min-height:60px;
+
+}
+
+#tapText{
+
+    margin-top:70px;
+
+    color:#999;
+
+    opacity:0;
+
+    transition:1s;
+
+    letter-spacing:2px;
+
+    animation:bounce 2s infinite;
+
+}
+
+#mainContent{
+
+    opacity:0;
+
+    transition:1.2s;
+
+}
+
+/* =====================================
+MAGICAL INTRO SPARKLES
+===================================== */
+
+.introSparkle{
+
+    position:fixed;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#FFD54A;
+
+    box-shadow:
+    0 0 8px #FFD54A,
+    0 0 20px #FFD54A,
+    0 0 35px rgba(255,215,0,.7);
+
+    left:0;
+    top:0;
+
+    pointer-events:none;
+
+    z-index:999999;
+
+    animation:introBlast 1.8s forwards;
+
+}
+
+@keyframes introBlast{
+
+    0%{
+
+        transform:translate(0,0) scale(1);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+        translate(var(--x),var(--y))
+        scale(0);
+
+        opacity:0;
+
+    }
+
+}
+
+/* =====================================
+SECTION DIVIDER
+===================================== */
+
+.divider{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:20px;
+
+    width:90%;
+
+    max-width:900px;
+
+    margin:30px auto;
+
+    color:#F4C430;
+
+    font-size:1.6rem;
+
+}
+
+.divider span{
+
+    flex:1;
+
+    height:1px;
+
+    background:linear-gradient(
+        to right,
+        transparent,
+        rgba(244,196,48,.7),
+        transparent
+    );
+
+}
+.divider{
+
+    animation:dividerGlow 3s ease-in-out infinite;
+
+}
+
+@keyframes dividerGlow{
+
+    0%,100%{
+
+        opacity:.6;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        text-shadow:
+        0 0 10px #FFD700,
+        0 0 25px #FFD700;
+
+    }
+
+}
+
+/* ===========================
+BABY SECTION
+=========================== */
+
+.baby-section{
+
+    text-align:center;
+
+    padding:80px 0;
+
+}
+
+.baby-card{
+
+    max-width:700px;
+
+    margin:auto;
+
+    padding:22px;
+
+    background:rgba(255,255,255,.55);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:24px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.12);
+
+    transition:.4s;
+
+    text-align:center;
+
+}
+
+.baby-card:hover{
+
+    transform:rotate(0deg) scale(1.03);
+
+}
+
+.baby-card img{
+    width:100%;
+    height:auto;
+    object-fit:cover;
+}
+
+.baby-text{
+
+    margin-top:30px;
+
+}
+
+.baby-text h2{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:2.6rem;
+
+    color:#d14d72;
+
+    margin-bottom:20px;
+
+}
+
+.baby-text p{
+
+    font-size:1.15rem;
+
+    line-height:2;
+
+    color:#555;
+
+}
+
+/* ==========================
+RASMALAI SECTION
+========================== */
+
+.rasmalai-section{
+
+    text-align:center;
+
+    padding:80px 20px;
+
+}
+
+.rasmalai-section img{
+
+    width:320px;
+
+    transition:.4s;
+
+    filter:drop-shadow(0 15px 30px rgba(0,0,0,.15));
+
+}
+
+.rasmalai-section img:hover{
+
+    transform:scale(1.08) rotate(-5deg);
+
+}
+
+.rasmalai-section h2{
+
+    margin-top:25px;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:3rem;
+
+    color:#d14d72;
+
+}
+
+.rasmalai-section p{
+
+    margin-top:12px;
+
+    font-size:1.25rem;
+
+    color:#555;
+
+}
+
+/* ===========================================
+MOBILE FIXES
+=========================================== */
+
+@media screen and (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    /* Intro */
+
+    #typingTitle{
+        font-size:3rem;
+        min-height:auto;
+    }
+
+    #typingName{
+        font-size:3.8rem;
+        min-height:auto;
+        line-height:1.1;
+    }
+
+    #typingMessage{
+        font-size:1rem;
+        padding:0 20px;
+        min-height:auto;
+    }
+
+    #tapText{
+        font-size:.9rem;
+        margin-top:40px;
+    }
+
+    /* Hero */
+
+    .hero{
+        padding:40px 20px;
+    }
+
+    .hero h1{
+        font-size:3rem;
+    }
+
+    .hero h2{
+        font-size:4rem;
+        line-height:1;
+    }
+
+    .hero p{
+        font-size:1rem;
+        padding:0 10px;
+    }
+
+    /* Message */
+
+    .message-card{
+
+        width:95%;
+
+        padding:20px;
+
+        font-size:1rem;
+
+        line-height:1.8;
+
+    }
+
+    /* Videos */
+
+    .memory-video{
+
+        width:92%;
+
+        max-width:340px;
+
+        border-radius:20px;
+
+    }
+
+    /* Baby */
+
+    .baby-card{
+
+        width:92%;
+
+        padding:18px;
+
+    }
+
+    .baby-card img{
+
+        aspect-ratio:4/3;
+
+    }
+
+    .baby-text h2{
+
+        font-size:2rem;
+
+    }
+
+    .baby-text p{
+
+        font-size:1rem;
+
+    }
+
+    /* Rasmalai */
+
+    .rasmalai-section img{
+
+        width:160px;
+
+    }
+
+    .rasmalai-section h2{
+
+        font-size:2.3rem;
+
+    }
+
+    .rasmalai-section p{
+
+        font-size:1rem;
+
+        padding:0 20px;
+
+    }
+
+    /* Popup */
+
+    .popupContent{
+
+        width:92%;
+
+        padding:25px;
+
+    }
+
+    .popupContent h2{
+
+        font-size:2.2rem;
+
+    }
+
+    /* Divider */
+
+    .divider{
+
+        gap:10px;
+
+        font-size:1.2rem;
+
+    }
+
+    section{
+
+        padding:60px 0;
+
+    }
+
+}
