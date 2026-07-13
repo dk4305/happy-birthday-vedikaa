@@ -338,7 +338,7 @@ images.forEach(img => {
 // ==========================================
 // HERO FADE
 // ==========================================
-/*
+
 window.addEventListener("scroll", () => {
 
     const hero = document.querySelector(".hero");
@@ -349,7 +349,7 @@ window.addEventListener("scroll", () => {
     );
 
 });
-*/
+
 // ===================================
 // INTRO TYPING
 // ===================================
